@@ -21,12 +21,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy --nofork
 exec --no-startup-id nm-applet
 #for_window [class="^.*"] border pixel 2
 gaps inner 8
-gaps outer 8
+gaps outer 6
 
 
 bindsym $mod+z		gaps outer current plus  5 
 bindsym $mod+Shift+z	gaps outer current minus 5
-bindsym $mod+Shift+y exec xrandr --output eDP-1 --auto --output HDMI-2 --auto --scale 1.5x1.5 --right-of eDP-1 && feh --bg-scale ~/.config/i3/wallpapers/2465507.jpg
+bindsym $mod+Shift+y exec xrandr --output eDP-1 --auto --output HDMI-2 --auto --fill 1.5x1.5 --right-of eDP-1 && feh --bg-scale ~/.config/i3/wallpapers/2465507.jpg
 # sets the wallpaper
 exec --no-startup-id exec xrandr --output eDP-1 --auto --output HDMI-2 --auto --scale 1.5x1.5 --right-of eDP-1
 exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/2465507.jpg
@@ -47,7 +47,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # start the launcher
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec ./.config/rofi/launchers/type-4/launcher.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -65,10 +65,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+Ctrl+h split h
+bindsym $mod+c split h
 
 # split in vertical orientation
-bindsym $mod+Ctrl+v split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
