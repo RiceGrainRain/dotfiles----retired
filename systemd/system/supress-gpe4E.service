@@ -1,0 +1,8 @@
+[Unit]
+Description=Process to disable interrupt GPE 4e
+
+[Service]
+ExecStart=/usr/bin/bash -c 'echo "disable" > /sys/firmware/acpi/interrupts/gpe4E'
+
+[Install]
+WantedBy=multi-user.target
