@@ -1,14 +1,15 @@
+
 #Pulse Audio
  bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
-bindsym XF86MonBrightnessUp exec brightnessctl s +1% > /dev/null && notify-send Brightness $(($(brightnessctl get) * 10 / 937 * 10))% -h string:x-canonical-private-synchronous:brightness_percentage --app-name System
-bindsym XF86MonBrightnessDown exec brightnessctl s 1%- > /dev/null && notify-send Brightness $(($(brightnessctl get) * 10 / 937 * 10))% -h string:x-canonical-private-synchronous:brightness_percentage --app-name System
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +5% > /dev/null && notify-send Brightness $(($(brightnessctl get) * 10 / 937 * 10))% -h string:x-canonical-private-synchronous:brightness_percentage --app-name System
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%- > /dev/null && notify-send Brightness $(($(brightnessctl get) * 10 / 937 * 10))% -h string:x-canonical-private-synchronous:brightness_percentage --app-name System
 
 
-bindsym XF86KbdBrightnessUp exec light -s sysfs/leds/smc::kbd\_backlight -A 4
-bindsym XF86KbdBrightnessDown exec light -s sysfs/leds/smc::kbd\_backlight -U 4
+bindsym XF86KbdBrightnessUp exec --no-startup-id brightnessctl s +10% -d smc::kbd_backlight
+bindsym XF86KbdBrightnessDown exec --no-startup-id brightnessctl s 10%- -d smc::kbd_backlight 
 
 
 
@@ -19,6 +20,8 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id sh ~/.config/polybar/launch.sh
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy --nofork
 exec --no-startup-id nm-applet
+exec --no-startup-id thermald
+exec --no-startup-id nitrogen --restore
 #for_window [class="^.*"] border pixel 2
 gaps inner 8
 gaps outer 6
@@ -26,10 +29,10 @@ gaps outer 6
 
 bindsym $mod+z		gaps outer current plus  5 
 bindsym $mod+Shift+z	gaps outer current minus 5
-bindsym $mod+Shift+y exec xrandr --output eDP-1 --auto --output HDMI-2 --auto --fill 1.5x1.5 --right-of eDP-1 && feh --bg-scale ~/.config/i3/wallpapers/2465507.jpg
+bindsym $mod+Shift+y exec xrandr --output eDP-1 --auto --output HDMI-2 --auto --fill 1.5x1.5 --right-of eDP-1 && feh --bg-scale ~/.config/i3/wallpapers/Tremor.png
 # sets the wallpaper
 exec --no-startup-id exec xrandr --output eDP-1 --auto --output HDMI-2 --auto --scale 1.5x1.5 --right-of eDP-1
-exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/2465507.jpg
+#exec --no-startup-id feh --bg-auto ~/.config/i3/wallpapers/Tremor.png
 # starts the compositor
 exec --no-startup-id picom --config ~/.config/picom/picom.conf 
 # Use pactl to adjust volume in PulseAudio.
@@ -44,10 +47,11 @@ for_window [class="krunner"] floating enable
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return  exec alacritty
 
 # start the launcher
-bindsym $mod+d exec ./.config/rofi/launchers/type-4/launcher.sh
+bindsym $mod+d  exec rofi -show drun
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -88,7 +92,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # font in use by i3
-font pango:JetbrainsMono Nerd Font 8
+font pango:JetbrainsMono Nerd Font 12
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -132,14 +136,14 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'do you want to quit i3 (◕‿◕ ✿) ?' -B 'YEAH FUCK THIS SHIT' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'do you want to quit i3 (◕‿◕ ✿) ?' -B 'FUCK THIS' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 
 set $bg-color 	                #181619
 set $inactive-bg-color          #2f2d30
 set $text-color                 #f6f6f6
-set $inactive-text-color        #a6adc8D
+set $inactive-text-color        #808080
 set $urgent-bg-color            #f38ba8
 
 # window colors

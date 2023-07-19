@@ -14,14 +14,13 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
-  size: 9.0
+  size: 13.0
 
 window:
   opacity: .80
-
 colors:
   primary:
-    background: '#282a36'
+    background: '#000000'
     foreground: '#f8f8f2'
     bright_foreground: '#ffffff'
   cursor:
@@ -33,20 +32,20 @@ colors:
   search:
     matches:
       foreground: '#44475a'
-      background: '#50fa7b'
+      background: '#000000'
     focused_match:
       foreground: '#44475a'
-      background: '#ffb86c'
+      background: '#000000'
   footer_bar:
-    background: '#282a36'
+    background: '#000000'
     foreground: '#f8f8f2'
   hints:
     start:
       foreground: '#282a36'
-      background: '#f1fa8c'
+      background: '#000000'
     end:
       foreground: '#f1fa8c'
-      background: '#282a36'
+      background: '#000000'
   line_indicator:
     foreground: None
     background: None
@@ -54,11 +53,11 @@ colors:
     text: CellForeground
     background: '#44475a'
   normal:
-    black: '#21222c'
+    black: '#000000'
     red: '#ff5555'
     green: '#50fa7b'
     yellow: '#f1fa8c'
-    blue: '#bd93f9'
+    blue: '#ffffff'
     magenta: '#ff79c6'
     cyan: '#8be9fd'
     white: '#f8f8f2'

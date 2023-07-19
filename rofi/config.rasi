@@ -1,13 +1,6 @@
-/*******************************************************************************
- * ROFI Color theme
- * User: Avasz
- * Copyleft: Avasz <avasz@protonmail.com>
- *******************************************************************************/
-
-
 * {
-	background-color:           #181619;
-	text-color:                 #d3d7cf;
+	background-color:           #000000;
+	text-color:                 #ffffff;
 	selbg:                      #e3e3e3;
 	actbg:                      #e3e3e3;
 	urgbg:                      #e53935;
@@ -134,5 +127,6 @@ button {
     background-color: @alternate-active-background;
     text-color:       @alternate-active-foreground;
 }
+
 
 
